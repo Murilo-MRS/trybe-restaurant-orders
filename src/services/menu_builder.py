@@ -38,15 +38,11 @@ class MenuBuilder:
         main_menu_list = []
 
         for dish in filtered_dishes:
-            if (
-                restriction is None
-                or restriction not in dish.get_restrictions()
-            ):
-                main_menu_dict = {}
-                main_menu_dict["dish_name"] = dish.name
-                main_menu_dict["ingredients"] = list(dish.get_ingredients())
-                main_menu_dict["price"] = dish.price
-                main_menu_dict["restrictions"] = list(dish.get_restrictions())
-                main_menu_list.append(main_menu_dict)
+            main_menu_dict = {}
+            main_menu_dict["dish_name"] = dish.name
+            main_menu_dict["ingredients"] = list(dish.get_ingredients())
+            main_menu_dict["price"] = dish.price
+            main_menu_dict["restrictions"] = list(dish.get_restrictions())
+            main_menu_list.append(main_menu_dict)
 
         return pd.DataFrame(main_menu_list)
